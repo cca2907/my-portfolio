@@ -36,18 +36,19 @@
                 const container = document.getElementById('projects-container');
                 data.projects.forEach(proj => {
                     // Check natin kung may link; kung wala, huwag magpakita ng button
+                data.projects.forEach(proj => {
                     const linkButton = proj.link 
-                        ? `<a href="${proj.link}" target="_blank" class="btn btn-outline-primary btn-sm mt-3">View Project</a>` 
+                        ? `<a href="${proj.link}" target="_blank" class="btn btn-primary btn-sm mt-auto w-100">View Project</a>` 
                         : "";
                 
                     const card = `
-                        <div class="col-md-6">
-                            <div class="card h-100 shadow-sm p-4">
-                                <div class="card-body d-flex flex-column">
-                                    <h3 class="card-title h5">${proj.title}</h3>
-                                    <p class="card-text text-muted flex-grow-1">${proj.description}</p>
-                                    <div>
-                                        <span class="badge bg-secondary mb-2">${proj.tech}</span>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0" style="transition: 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.shadow='0 10px 20px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'">
+                                <div class="card-body d-flex flex-column p-4">
+                                    <h5 class="card-title fw-bold text-dark mb-3">${proj.title}</h5>
+                                    <p class="card-text text-muted small flex-grow-1">${proj.description}</p>
+                                    <div class="mb-3">
+                                        <span class="badge rounded-pill bg-light text-primary border border-primary px-3">${proj.tech}</span>
                                     </div>
                                     ${linkButton}
                                 </div>
