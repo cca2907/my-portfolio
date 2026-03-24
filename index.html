@@ -52,9 +52,15 @@
                                     ${linkButton}
                                 </div>
                             </div>
+                            <footer class="text-center my-5">
+                                <p class="text-muted small">Last Sync: <span id="sync-time">Loading...</span></p>
+                                <p class="text-muted extra-small" style="font-size: 0.7rem;">Powered by Google Apps Script Cache</p>
+                            </footer>
                         </div>`;
                     container.innerHTML += card;
                 });
+                // Sa ilalim ng loop ng projects, idagdag ito:
+                document.getElementById('sync-time').innerText = data.lastSync;
             } catch (error) {
                 console.error("Error loading data:", error);
             }
