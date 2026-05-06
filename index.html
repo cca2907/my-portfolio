@@ -124,6 +124,19 @@
       const API_URL =
         "https://script.google.com/macros/s/AKfycbxbcCTCcpsD27eWJm4ZVieyOSeFwRq4IfUY880KOXdaVR_7wM_EHMcawjmF43-D-SC8/exec";
 
+      // ── Popup config (hardcoded) ─────────────────────────────────────────
+      const POPUP = { w: 1100, h: 850 };
+
+      function openLink(url) {
+        const left = (screen.width  / 2) - (POPUP.w / 2);
+        const top  = (screen.height / 2) - (POPUP.h / 2);
+        window.open(
+          url,
+          "Evidence",
+          `width=${POPUP.w},height=${POPUP.h},top=${top},left=${left},resizable=yes,scrollbars=yes`
+        );
+      }
+
       // ── Safe text helper (prevents XSS) ──────────────────────────────────
       function safeText(str) {
         const div = document.createElement("div");
@@ -142,8 +155,8 @@
           .join("");
 
         const linkButton = proj.link
-          ? `<a href="${safeText(proj.link)}" target="_blank" rel="noopener noreferrer"
-               class="btn btn-primary btn-sm mt-auto w-100">View Project</a>`
+          ? `<button onclick="openLink('${safeText(proj.link)}')"
+               class="btn btn-primary btn-sm mt-auto w-100">View Project</button>`
           : "";
 
         return `
