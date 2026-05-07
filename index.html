@@ -95,6 +95,7 @@
           <span class="skeleton d-inline-block" style="width:240px;height:2rem;"></span>
         </h1>
         <p id="user-title" class="lead mb-0" style="color:#94a3b8;"></p>
+        <p id="title-description" class="lead mb-0" style="color:#94a3b8;"></p>
       </div>
     </header>
 
@@ -202,6 +203,7 @@
           // ── Profile ──
           document.getElementById("user-name").textContent  = data.settings?.name  ?? "Portfolio";
           document.getElementById("user-title").textContent = data.settings?.title ?? "";
+          document.getElementById("title-description").textContent = data.settings?.titleDescription ?? "";
           document.getElementById("sync-time").textContent  = data.lastSync         ?? "Unknown";
 
           // ── Projects — build all HTML first, then inject once ──
